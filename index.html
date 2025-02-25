@@ -10,41 +10,84 @@
             background-color: #121212;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
             flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 20px;
+            padding: 30px;
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row; /* Барьер и текст теперь по горизонтали */
         }
         .barrier {
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
             background: url('/images/barrier.png') no-repeat center;
-            background-size: cover;
-            margin-bottom: 20px;
+            background-size: contain;
+            margin-left: 30px;
+            transition: transform 0.3s ease;
+        }
+        .barrier:hover {
+            transform: scale(1.1);
         }
         .message {
-            font-size: 16px;
+            font-size: 24px;
+            line-height: 1.4;
+            margin-bottom: 20px;
         }
         .link {
             color: #ff4444;
+            font-size: 20px;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         .link:hover {
+            color: #ffffff;
             text-decoration: underline;
+        }
+        .countdown {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4444;
         }
     </style>
     <script>
-        setTimeout(() => {
-            window.location.href = "https://wellmine.fun";
-        }, 5000);
+        document.addEventListener("DOMContentLoaded", function() {
+            let countdown = 5;
+            const countdownElement = document.getElementById('countdown');
+
+            const interval = setInterval(() => {
+                if (countdown === 0) {
+                    window.location.href = "https://wellmine.fun";
+                    clearInterval(interval);
+                } else {
+                    countdownElement.textContent = `Перенаправление через ${countdown} секунд...`;
+                    countdown--;
+                }
+            }, 1000);
+        });
     </script>
 </head>
 <body>
-    <div class="barrier"></div>
-    <p class="message">Наш официальный сайт: <a class="link" href="https://wellmine.fun">wellmine.fun</a></p>
-    <p class="message">Перенаправление через 5 секунд...</p>
+    <div class="container">
+        <div>
+            <p class="message">Добро пожаловать на наш официальный сайт:</p>
+            <a class="link" href="https://wellmine.fun" target="_blank">wellmine.fun</a>
+            <p class="countdown" id="countdown">Перенаправление через 5 секунд...</p>
+        </div>
+        <div class="barrier"></div>
+    </div>
 </body>
 </html>
