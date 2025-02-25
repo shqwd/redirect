@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellmine Redirect</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+        }
+        .barrier {
+            width: 150px;
+            height: 150px;
+            background: url('/images/barrier.png') no-repeat center;
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 16px;
+        }
+        .link {
+            color: #ff4444;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        setTimeout(() => {
+            window.location.href = "https://wellmine.fun";
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div class="barrier"></div>
+    <p class="message">Наш официальный сайт: <a class="link" href="https://wellmine.fun">wellmine.fun</a></p>
+    <p class="message">Перенаправление через 5 секунд...</p>
+</body>
+</html>
